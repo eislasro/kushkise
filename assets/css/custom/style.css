@@ -1,0 +1,70 @@
+.header-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img-small {
+    max-width: 215px;
+    max-height: 215px;
+  }
+
+.product-img-cart {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.product-small {
+    max-width: 215px;
+}
+
+.logo-icon{
+    max-height: 48px;
+}
+
+.drpdown-cart-products-max {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.mouse-pointer{
+    cursor: pointer;
+}
+
+.wrap{
+    white-space:break-spaces !important;
+}
+
+.card-img {
+    transition: opacity 0.2s ease;
+}
+.card-type-display .card-img + .card-img  {
+    margin-left: 0.25rem;
+}
+
+.card-img--unselected{
+    opacity: 0.2;
+}
+
+.form-group-card{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: relative;
+}
+
+.card-type-display {
+    display: flex;
+    position: absolute;
+    top: 3.4rem;
+    right: 2rem;
+}
+
+.prism-code{
+    padding: 1rem;
+}
+
+.padding{
+    padding: 10px;
+}
