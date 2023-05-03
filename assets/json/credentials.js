@@ -2,7 +2,7 @@ function credentials() {
     var credentials = {
         CLP: 'cab1736fa5504f9baae97a1b4aa21642',
         COP: 'a192201dc05f4ab6807b866328d1f205',
-        PEN: '30498b00161447f29e7987ef77a2efdd',
+        PEN: '1000000633845053099215659713079',
         MXN: 'd3cb9892638347cab519d963da45f8ce',
         USD: '2f31660c732f4ccc9c6133490cd09809'
     }
