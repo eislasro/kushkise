@@ -130,12 +130,7 @@ function validarTarjeta(cardNumber) {
     }
   }
   
-  function validateInputCard() {
-    var value = $('#credit-card-number').val();
-    mostrarIconoTarjeta(value)
-    validarTarjeta(value);
-    
-  }
+  var cardContent = ''
 
   function validateNumbers(evt) {
     var key = evt.key;
@@ -145,6 +140,63 @@ function validarTarjeta(cardNumber) {
     return false;
     
   }
+
+  function validateCardNumbers(evt) {
+    evt.preventDefault()
+    var key = evt.key;
+    if ((key >= 0 && key <= 9) || key == 'Backspace') {
+      if(key >= 0 && key <= 9){
+        cardContent += key
+        let longitud = cardContent.length;
+        let masked = longitud > 4 ?  "*".repeat(longitud - 4) + cardContent.slice(-4) : "*".repeat(longitud)
+        $('#credit-card-number').val(masked)
+      } else if(key == 'Backspace'){
+        let longitud = cardContent.length;
+        cardContent = cardContent.slice(0,longitud-1)
+        longitud = longitud -1;
+        let masked = longitud > 4 ?  "*".repeat(longitud - 4) + cardContent.slice(-4) : "*".repeat(longitud)
+        $('#credit-card-number').val(masked)
+      }
+      console.log(cardContent);
+      mostrarIconoTarjeta(cardContent)
+      validarTarjeta(cardContent);
+      //return true;
+    }
+    //return false;
+    
+  }
+
+  var inputElement = document.getElementById('credit-card-number')
+
+  inputElement.addEventListener('input', (event) => {
+    if(event.inputType == 'insertText'){
+      var key = event.data;
+      if(key >= 0 && key <= 9){
+        cardContent += key
+        let longitud = cardContent.length;
+        let masked = longitud > 4 ?  "*".repeat(longitud - 4) + cardContent.slice(-4) : "*".repeat(longitud)
+        inputElement.value = masked
+      }
+    } else if(event.inputType == 'deleteContentBackward') {
+      let longitud = cardContent.length;
+      cardContent = cardContent.slice(0,longitud-1)
+      longitud = longitud -1;
+      let masked = longitud > 4 ?  "*".repeat(longitud - 4) + cardContent.slice(-4) : "*".repeat(longitud)
+      inputElement.value = masked
+    } else {
+      var value = event.target.value
+      if(/^\d+$/.test(value)){
+        cardContent = value;
+        let longitud = cardContent.length;
+        let masked = longitud > 4 ?  "*".repeat(longitud - 4) + cardContent.slice(-4) : "*".repeat(longitud)
+        inputElement.value = masked
+      } else {
+        inputElement.value = ''
+      }
+    }
+    mostrarIconoTarjeta(cardContent)
+    validarTarjeta(cardContent);
+  });
 
   function validateInputCvv() {
     var value = $('#card-cvv').val();
@@ -179,7 +231,7 @@ function validarTarjeta(cardNumber) {
               currency: currency,
               card: {
                   name: $('#credit-card-name').val(),
-                  number: $('#credit-card-number').val(),
+                  number: cardContent,
                   cvc: $('#card-cvv').val(),
                   expiryMonth:  $('#card-date').val().split('/')[0],
                   expiryYear: $('#card-date').val().split('/')[1],
@@ -198,7 +250,7 @@ function validarTarjeta(cardNumber) {
       currency: '${currency}',
       card: {
           name: '${$('#credit-card-name').val()}',
-          number: '${$('#credit-card-number').val()}',
+          number: '${cardContent}',
           cvc: '${$('#card-cvv').val()}',
           expiryMonth:  '${$('#card-date').val().split('/')[0]}',
           expiryYear: '${$('#card-date').val().split('/')[1]}',
@@ -267,7 +319,7 @@ function validarTarjeta(cardNumber) {
               currency: currency,
               card: {
                   name: $('#credit-card-name').val(),
-                  number: $('#credit-card-number').val(),
+                  number: cardContent,
                   cvc: $('#card-cvv').val(),
                   expiryMonth:  $('#card-date').val().split('/')[0],
                   expiryYear: $('#card-date').val().split('/')[1],
@@ -285,7 +337,7 @@ function validarTarjeta(cardNumber) {
       currency: '${currency}',
       card: {
           name: '${$('#credit-card-name').val()}',
-          number: '${$('#credit-card-number').val()}',
+          number: '${cardContent}',
           cvc: '${$('#card-cvv').val()}',
           expiryMonth:  '${$('#card-date').val().split('/')[0]}',
           expiryYear: '${$('#card-date').val().split('/')[1]}',
@@ -532,4 +584,23 @@ String TOKEN = ${response.token}
       }
   });
     
+}
+
+function finish() {
+  const min = 1000; 
+  const max = 999999;
+  const rango = max - min + 1;
+  var randomId = Math.floor(Math.random() * rango) + min;
+  Swal.fire({
+    icon: 'success',
+    title: 'Tu compra ha finalizado con éxito',
+    text: `Id de compra: ${randomId}`,
+    showConfirmButton: true,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+}).then((result) => {
+  localStorage.removeItem('cart')
+  window.location.href = 'index.html'
+})
 }

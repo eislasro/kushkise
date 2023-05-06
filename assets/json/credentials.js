@@ -13,8 +13,8 @@ function credentials() {
 function documentType() {
     var documentType = {
         CLP: 'RUT',
-        COP: 'DNI',
-        PEN: 'CC',
+        COP: 'CC',
+        PEN: 'DNI',
         MXN: 'CURP',
         USD: 'CI'
     }
