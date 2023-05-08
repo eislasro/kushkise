@@ -79,7 +79,7 @@
                                                                 <input id="credit-card-name" type="text" class="form-control" required>
                                                                 <div class="form-group-card">
                                                                     <label>Número de tarjeta</label>
-                                                                    <input id="credit-card-number" onkeydown="return validateNumbers(event);" onkeyup="validateInputCard()" type="text" class="form-control" required>
+                                                                    <input id="credit-card-number" type="text" class="form-control" required>
                                                                     <div id="validateCardNumTxt" class="invalid-feedback" style="display: none;">
                                                                         Número de tarjeta no válido
                                                                     </div>
@@ -326,6 +326,10 @@
                         <span aria-hidden="true"><i class="icon-close"></i></span>
                     </button>
                     <pre><code class="language-javascript" id="jscode"></code></pre>
+                    <button data-dismiss="modal" onclick="finish()" class="btn btn-outline-primary-2 btn-order btn-block">
+                        <span class="btn-text">Finalizar</span>
+                        <span class="btn-hover-text">Finalizar</span>
+                    </button>
                 </div><!-- End .modal-body -->
             </div><!-- End .modal-content -->
         </div><!-- End .modal-dialog -->
