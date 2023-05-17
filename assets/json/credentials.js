@@ -3,7 +3,7 @@ function credentials() {
         CLP: 'cab1736fa5504f9baae97a1b4aa21642',
         COP: 'a192201dc05f4ab6807b866328d1f205',
         PEN: '1000000633845053099215659713079',
-        MXN: 'd3cb9892638347cab519d963da45f8ce',
+        MXN: '9fbf716eff3343ebbd77390132d0bf5e',
         USD: '2f31660c732f4ccc9c6133490cd09809'
     }
     const currency = localStorage.getItem('currency') ?? 'CLP';
