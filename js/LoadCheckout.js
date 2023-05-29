@@ -240,7 +240,15 @@ function validarTarjeta(cardNumber) {
                   swal.close();
                   if(response.token){
   var jsonHtml = `
-  // CODIGO
+//Respuestas
+  
+  Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
+  Float SUBTOTALIVA0 = 0
+  Float IVA = ${(totalG * 0.19).toFixed(2)}
+  String CURRENCY = ${currency}
+  String TOKEN = ${response.token}
+
+// CODIGO
   const kushki = new Kushki({
       merchantId: '${merchantKey}', 
       inTestEnvironment: true,
@@ -264,13 +272,7 @@ function validarTarjeta(cardNumber) {
       }
   });
   
-  //Respuestas
   
-  Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
-  Float SUBTOTALIVA0 = 0
-  Float IVA = ${(totalG * 0.19).toFixed(2)}
-  String CURRENCY = ${currency}
-  String TOKEN = ${response.token}
   `
                       $('#toggle-modal').click()
                       $('#jscode').html(jsonHtml)
@@ -328,7 +330,16 @@ function validarTarjeta(cardNumber) {
                   swal.close();
                   if(response.token){
   var jsonHtml = `
-  // CODIGO
+//Respuestas
+  
+  Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
+  Float SUBTOTALIVA0 = 0
+  Float IVA = ${(totalG * 0.19).toFixed(2)}
+  String CURRENCY = ${currency}
+  String TOKEN = ${response.token}
+
+
+// CODIGO
   const kushki = new Kushki({
       merchantId: '${merchantKey}', 
       inTestEnvironment: true,
@@ -351,13 +362,7 @@ function validarTarjeta(cardNumber) {
       }
   });
   
-  //Respuestas
   
-  Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
-  Float SUBTOTALIVA0 = 0
-  Float IVA = ${(totalG * 0.19).toFixed(2)}
-  String CURRENCY = ${currency}
-  String TOKEN = ${response.token}
   `
                       $('#toggle-modal').click()
                       $('#jscode').html(jsonHtml)
@@ -427,6 +432,15 @@ function cashPay(event) {
           swal.close();
           if(response.token){
 var jsonHtml = `
+
+//Respuestas
+
+Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
+Float SUBTOTALIVA0 = 0
+Float IVA = ${(totalG * 0.19).toFixed(2)}
+String CURRENCY = ${currency}
+String TOKEN = ${response.token}
+
 // CODIGO
 const kushki = new Kushki({
     merchantId: '${merchantKey}', 
@@ -451,13 +465,7 @@ kushki.requestCashToken({
     }
 });
 
-//Respuestas
 
-Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
-Float SUBTOTALIVA0 = 0
-Float IVA = ${(totalG * 0.19).toFixed(2)}
-String CURRENCY = ${currency}
-String TOKEN = ${response.token}
 `
               $('#toggle-modal').click()
               $('#jscode').html(jsonHtml)
@@ -517,6 +525,15 @@ function transferPay(event) {
           swal.close();
           if(response.token){
 var jsonHtml = `
+
+//Respuestas
+
+Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
+Float SUBTOTALIVA0 = 0
+Float IVA = ${(totalG * 0.19).toFixed(2)}
+String CURRENCY = ${currency}
+String TOKEN = ${response.token}
+
 // CODIGO
 const kushki = new Kushki({
     merchantId: '${merchantKey}', 
@@ -559,13 +576,7 @@ kushki.requestTransferToken({
     }
 });
 
-//Respuestas
 
-Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
-Float SUBTOTALIVA0 = 0
-Float IVA = ${(totalG * 0.19).toFixed(2)}
-String CURRENCY = ${currency}
-String TOKEN = ${response.token}
 `
               $('#toggle-modal').click()
               $('#jscode').html(jsonHtml)
