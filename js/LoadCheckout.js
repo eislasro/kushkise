@@ -258,7 +258,7 @@ function validarTarjeta(cardNumber) {
       currency: '${currency}',
       card: {
           name: '${$('#credit-card-name').val()}',
-          number: '${masked}',
+          number: '${$('#credit-card-number').val(masked)}',
           cvc: '***',
           expiryMonth:  '${$('#card-date').val().split('/')[0]}',
           expiryYear: '${$('#card-date').val().split('/')[1]}',
