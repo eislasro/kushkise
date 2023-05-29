@@ -259,7 +259,7 @@ function validarTarjeta(cardNumber) {
       card: {
           name: '${$('#credit-card-name').val()}',
           number: '${cardContent}',
-          cvc: '${$('#card-cvv').val()}',
+          cvc: '***',
           expiryMonth:  '${$('#card-date').val().split('/')[0]}',
           expiryYear: '${$('#card-date').val().split('/')[1]}',
       },
@@ -349,7 +349,7 @@ function validarTarjeta(cardNumber) {
       card: {
           name: '${$('#credit-card-name').val()}',
           number: '${cardContent}',
-          cvc: '${$('#card-cvv').val()}',
+          cvc: '***',
           expiryMonth:  '${$('#card-date').val().split('/')[0]}',
           expiryYear: '${$('#card-date').val().split('/')[1]}',
       },
