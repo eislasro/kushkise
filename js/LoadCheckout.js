@@ -242,11 +242,12 @@ function validarTarjeta(cardNumber) {
   var jsonHtml = `
 //Respuestas
   
+  String TOKEN = ${response.token}
   Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
   Float SUBTOTALIVA0 = 0
   Float IVA = ${(totalG * 0.19).toFixed(2)}
   String CURRENCY = ${currency}
-  String TOKEN = ${response.token}
+  
 
 // CODIGO
   const kushki = new Kushki({
@@ -332,11 +333,12 @@ function validarTarjeta(cardNumber) {
   var jsonHtml = `
 //Respuestas
   
+  String TOKEN = ${response.token}
   Float SUBTOTALIVA = ${(totalG * 0.81).toFixed(2)}
   Float SUBTOTALIVA0 = 0
   Float IVA = ${(totalG * 0.19).toFixed(2)}
   String CURRENCY = ${currency}
-  String TOKEN = ${response.token}
+ 
 
 
 // CODIGO
@@ -348,7 +350,7 @@ function validarTarjeta(cardNumber) {
       currency: '${currency}',
       card: {
           name: '${$('#credit-card-name').val()}',
-          number: '${cardContent}',
+          number: '${$('#credit-card-number').val()}',
           cvc: '***',
           expiryMonth:  '${$('#card-date').val().split('/')[0]}',
           expiryYear: '${$('#card-date').val().split('/')[1]}',
