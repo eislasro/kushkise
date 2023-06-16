@@ -1,4 +1,9 @@
 var totalG = 0;
+
+
+  
+
+
 function loadCheckout(){
 
     var cartProducts = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
@@ -16,6 +21,18 @@ function loadCheckout(){
                     </tr>`
     totalG = 0 + total;
     })
+
+    var kushkiKajita = new KushkiCheckout({
+      kformId: "yz79Tfrqt",
+      form: "my-form",
+      publicMerchantId: "9fbf716eff3343ebbd77390132d0bf5e",
+      inTestEnvironment: true,
+      amount: {
+      subtotalIva: totalG * 0.81,
+      iva: totalG * 0.19,
+      subtotalIva0:0,
+      }
+      });
 
     var html = `${prodsHtml}
             <tr class="summary-subtotal">
